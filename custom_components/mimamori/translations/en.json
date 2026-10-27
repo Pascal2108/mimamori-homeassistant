@@ -3,14 +3,14 @@
     "step": {
       "user": {
         "title": "Connect mimamori",
-        "description": "Create a read-only token in mimamori under Settings → API tokens and paste it here. Use the HTTPS address of mimamori; plain http:// only inside one Docker network, since the token would otherwise travel unencrypted.",
+        "description": "Create a read-only token in mimamori under Settings → API tokens and paste it here. Use the HTTPS address of mimamori; plain HTTP only inside one Docker network, since the token would otherwise travel unencrypted.",
         "data": {
           "url": "Address of mimamori",
           "api_token": "API token",
           "verify_ssl": "Verify the HTTPS certificate"
         },
         "data_description": {
-          "url": "As Home Assistant reaches it, e.g. https://mimamori.example.com",
+          "url": "As Home Assistant reaches it: the HTTPS address of your reverse proxy, or the container name and port 8000 inside one Docker network.",
           "api_token": "Starts with mmr_. It can only read, not change anything.",
           "verify_ssl": "Turn off only for a self-signed certificate."
         }
@@ -35,10 +35,10 @@
       "cannot_connect": "mimamori could not be reached. Check the address and that Home Assistant can reach it.",
       "invalid_auth": "mimamori rejected the token. Check that it was copied completely and is not revoked.",
       "invalid_token_format": "This is not a mimamori API token. It starts with mmr_ and has 47 characters.",
-      "invalid_url": "Enter an address starting with https:// (or http://).",
+      "invalid_url": "Enter a full HTTPS (or HTTP) address, including the scheme.",
       "not_mimamori": "The address answers, but not like mimamori v0.3.5 or newer. Check the address and update mimamori.",
       "rate_limited": "Too many wrong tokens: mimamori blocks this address for a few minutes. Wait, then try again.",
-      "redirected": "The address redirects elsewhere. Enter the address it leads to, usually with https://.",
+      "redirected": "The address redirects elsewhere. Enter the address it leads to, usually the HTTPS one.",
       "unknown": "Unexpected error, see the Home Assistant log."
     },
     "abort": {
