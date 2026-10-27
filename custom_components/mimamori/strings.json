@@ -1,0 +1,180 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect mimamori",
+        "description": "Create a read-only token in mimamori under Settings → API tokens and paste it here. Use the HTTPS address of mimamori; plain http:// only inside one Docker network, since the token would otherwise travel unencrypted.",
+        "data": {
+          "url": "Address of mimamori",
+          "api_token": "API token",
+          "verify_ssl": "Verify the HTTPS certificate"
+        },
+        "data_description": {
+          "url": "As Home Assistant reaches it, e.g. https://mimamori.example.com",
+          "api_token": "Starts with mmr_. It can only read, not change anything.",
+          "verify_ssl": "Turn off only for a self-signed certificate."
+        }
+      },
+      "reauth_confirm": {
+        "title": "New API token for mimamori",
+        "description": "mimamori at {url} no longer accepts the token; it was probably revoked. Create a new one under Settings → API tokens.",
+        "data": {
+          "api_token": "API token"
+        }
+      },
+      "reconfigure": {
+        "title": "Change the mimamori connection",
+        "data": {
+          "url": "Address of mimamori",
+          "api_token": "API token",
+          "verify_ssl": "Verify the HTTPS certificate"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "mimamori could not be reached. Check the address and that Home Assistant can reach it.",
+      "invalid_auth": "mimamori rejected the token. Check that it was copied completely and is not revoked.",
+      "invalid_token_format": "This is not a mimamori API token. It starts with mmr_ and has 47 characters.",
+      "invalid_url": "Enter an address starting with https:// (or http://).",
+      "not_mimamori": "The address answers, but not like mimamori v0.3.5 or newer. Check the address and update mimamori.",
+      "rate_limited": "Too many wrong tokens: mimamori blocks this address for a few minutes. Wait, then try again.",
+      "redirected": "The address redirects elsewhere. Enter the address it leads to, usually with https://.",
+      "unknown": "Unexpected error, see the Home Assistant log."
+    },
+    "abort": {
+      "already_configured": "This mimamori is already set up.",
+      "reauth_successful": "The new token works.",
+      "reconfigure_successful": "The connection was changed."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "mimamori options",
+        "data": {
+          "scan_seconds": "Ask mimamori every"
+        },
+        "data_description": {
+          "scan_seconds": "Seconds between two requests. 60 is plenty: drives are checked hourly, status checks every minute or more."
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "problem": {
+        "name": "Status"
+      },
+      "online": {
+        "name": "Agent"
+      },
+      "reboot_required": {
+        "name": "Reboot required"
+      },
+      "drive_problem": {
+        "name": "Status"
+      },
+      "firmware_update": {
+        "name": "Firmware update"
+      },
+      "monitor_status": {
+        "name": "Status"
+      },
+      "certificate_expiring": {
+        "name": "Certificate expiring"
+      },
+      "push_problem": {
+        "name": "Status"
+      },
+      "running": {
+        "name": "Running"
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Severity",
+        "state": {
+          "none": "All fine",
+          "low": "Low",
+          "medium": "Medium",
+          "critical": "Critical"
+        }
+      },
+      "problems": {
+        "name": "Open problems"
+      },
+      "drive_problems": {
+        "name": "Drives with problems"
+      },
+      "hosts_offline": {
+        "name": "Hosts offline"
+      },
+      "security_updates": {
+        "name": "Missing security updates"
+      },
+      "monitors_down": {
+        "name": "Status checks down"
+      },
+      "push_problems": {
+        "name": "Backups and jobs with problems"
+      },
+      "docker_updates": {
+        "name": "Docker image updates"
+      },
+      "host_security_updates": {
+        "name": "Missing security updates"
+      },
+      "last_report": {
+        "name": "Last report"
+      },
+      "os": {
+        "name": "Operating system"
+      },
+      "filesystem": {
+        "name": "Disk space {name}"
+      },
+      "health": {
+        "name": "Health",
+        "state": {
+          "healthy": "Healthy",
+          "watch": "Watch",
+          "failing": "Failing",
+          "missing": "Missing"
+        }
+      },
+      "wear": {
+        "name": "Wear"
+      },
+      "reallocated_sectors": {
+        "name": "Reallocated sectors"
+      },
+      "pending_sectors": {
+        "name": "Pending sectors"
+      },
+      "media_errors": {
+        "name": "Media errors"
+      },
+      "power_on_hours": {
+        "name": "Power-on time"
+      },
+      "response_time": {
+        "name": "Response time"
+      },
+      "uptime_24h": {
+        "name": "Uptime 24 hours"
+      },
+      "uptime_30d": {
+        "name": "Uptime 30 days"
+      },
+      "certificate_expires": {
+        "name": "Certificate expires"
+      },
+      "last_success": {
+        "name": "Last success"
+      },
+      "deadline": {
+        "name": "Overdue after"
+      }
+    }
+  }
+}

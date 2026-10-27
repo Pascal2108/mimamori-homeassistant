@@ -1,0 +1,55 @@
+{
+  "entity": {
+    "binary_sensor": {
+      "reboot_required": {
+        "default": "mdi:restart",
+        "state": { "on": "mdi:restart-alert" }
+      },
+      "certificate_expiring": {
+        "default": "mdi:certificate",
+        "state": { "on": "mdi:certificate-outline" }
+      }
+    },
+    "sensor": {
+      "status": {
+        "default": "mdi:shield-check",
+        "state": {
+          "low": "mdi:shield-alert-outline",
+          "medium": "mdi:shield-alert",
+          "critical": "mdi:shield-alert"
+        }
+      },
+      "problems": { "default": "mdi:alert-circle-outline" },
+      "drive_problems": { "default": "mdi:harddisk" },
+      "hosts_offline": { "default": "mdi:server-off" },
+      "security_updates": { "default": "mdi:security" },
+      "monitors_down": { "default": "mdi:web-off" },
+      "push_problems": { "default": "mdi:backup-restore" },
+      "docker_updates": { "default": "mdi:docker" },
+      "host_security_updates": { "default": "mdi:security" },
+      "os": { "default": "mdi:linux" },
+      "filesystem": { "default": "mdi:folder-information" },
+      "health": {
+        "default": "mdi:harddisk",
+        "state": {
+          "watch": "mdi:harddisk-plus",
+          "failing": "mdi:harddisk-remove",
+          "missing": "mdi:help-circle-outline"
+        }
+      },
+      "wear": { "default": "mdi:gauge" },
+      "reallocated_sectors": { "default": "mdi:grid" },
+      "pending_sectors": { "default": "mdi:grid-off" },
+      "media_errors": { "default": "mdi:alert-octagon-outline" },
+      "response_time": { "default": "mdi:timer-outline" },
+      "uptime_24h": { "default": "mdi:percent-circle-outline" },
+      "uptime_30d": { "default": "mdi:percent-circle-outline" },
+      "certificate_expires": { "default": "mdi:certificate" },
+      "last_success": { "default": "mdi:check-circle-outline" },
+      "deadline": { "default": "mdi:timer-sand" }
+    },
+    "update": {
+      "docker_image": { "default": "mdi:docker" }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+name: Bug report
+description: Something does not work as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Issues are public: **never post API tokens, passwords, real host names,
+        IP addresses or drive serial numbers.** Replace them with placeholders.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, and what went wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Of the integration (HACS), of mimamori (bottom of its page) and of Home Assistant.
+      placeholder: integration 0.1.0, mimamori v0.3.5, Home Assistant 2026.10.1
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log
+      description: The lines about mimamori from Settings → System → Logs. Check them for private data first.
+      render: text
+    validations:
+      required: false

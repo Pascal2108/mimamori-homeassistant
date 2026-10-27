@@ -1,0 +1,180 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "mimamori verbinden",
+        "description": "Erstelle in mimamori unter Settings → API tokens ein Lese-Token und füge es hier ein. Nutze die HTTPS-Adresse von mimamori; http:// nur innerhalb eines Docker-Netzwerks, sonst geht das Token unverschlüsselt über das Netz.",
+        "data": {
+          "url": "Adresse von mimamori",
+          "api_token": "API-Token",
+          "verify_ssl": "HTTPS-Zertifikat prüfen"
+        },
+        "data_description": {
+          "url": "So, wie Home Assistant es erreicht, z. B. https://mimamori.example.com",
+          "api_token": "Beginnt mit mmr_. Es kann nur lesen, nichts ändern.",
+          "verify_ssl": "Nur bei einem selbst signierten Zertifikat ausschalten."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Neues API-Token für mimamori",
+        "description": "mimamori unter {url} nimmt das Token nicht mehr an; vermutlich wurde es widerrufen. Erstelle unter Settings → API tokens ein neues.",
+        "data": {
+          "api_token": "API-Token"
+        }
+      },
+      "reconfigure": {
+        "title": "Verbindung zu mimamori ändern",
+        "data": {
+          "url": "Adresse von mimamori",
+          "api_token": "API-Token",
+          "verify_ssl": "HTTPS-Zertifikat prüfen"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "mimamori ist nicht erreichbar. Prüfe die Adresse und ob Home Assistant sie erreicht.",
+      "invalid_auth": "mimamori hat das Token abgelehnt. Prüfe, ob es vollständig kopiert und nicht widerrufen ist.",
+      "invalid_token_format": "Das ist kein API-Token von mimamori. Es beginnt mit mmr_ und hat 47 Zeichen.",
+      "invalid_url": "Gib eine Adresse ein, die mit https:// (oder http://) beginnt.",
+      "not_mimamori": "Die Adresse antwortet, aber nicht wie mimamori ab v0.3.5. Prüfe die Adresse und aktualisiere mimamori.",
+      "rate_limited": "Zu viele falsche Tokens: mimamori sperrt diese Adresse für einige Minuten. Warte und versuche es dann erneut.",
+      "redirected": "Die Adresse leitet weiter. Gib die Zieladresse ein, meist mit https://.",
+      "unknown": "Unerwarteter Fehler, siehe das Home-Assistant-Log."
+    },
+    "abort": {
+      "already_configured": "Dieses mimamori ist bereits eingerichtet.",
+      "reauth_successful": "Das neue Token funktioniert.",
+      "reconfigure_successful": "Die Verbindung wurde geändert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "mimamori-Optionen",
+        "data": {
+          "scan_seconds": "mimamori abfragen alle"
+        },
+        "data_description": {
+          "scan_seconds": "Sekunden zwischen zwei Abfragen. 60 reichen: Laufwerke werden stündlich geprüft, Status-Checks jede Minute oder seltener."
+        }
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "problem": {
+        "name": "Status"
+      },
+      "online": {
+        "name": "Agent"
+      },
+      "reboot_required": {
+        "name": "Neustart nötig"
+      },
+      "drive_problem": {
+        "name": "Status"
+      },
+      "firmware_update": {
+        "name": "Firmware-Update"
+      },
+      "monitor_status": {
+        "name": "Status"
+      },
+      "certificate_expiring": {
+        "name": "Zertifikat läuft ab"
+      },
+      "push_problem": {
+        "name": "Status"
+      },
+      "running": {
+        "name": "Läuft"
+      }
+    },
+    "sensor": {
+      "status": {
+        "name": "Dringlichkeit",
+        "state": {
+          "none": "Alles in Ordnung",
+          "low": "Niedrig",
+          "medium": "Mittel",
+          "critical": "Kritisch"
+        }
+      },
+      "problems": {
+        "name": "Offene Probleme"
+      },
+      "drive_problems": {
+        "name": "Laufwerke mit Problemen"
+      },
+      "hosts_offline": {
+        "name": "Hosts offline"
+      },
+      "security_updates": {
+        "name": "Fehlende Sicherheitsupdates"
+      },
+      "monitors_down": {
+        "name": "Status-Checks ausgefallen"
+      },
+      "push_problems": {
+        "name": "Backups und Jobs mit Problemen"
+      },
+      "docker_updates": {
+        "name": "Docker-Image-Updates"
+      },
+      "host_security_updates": {
+        "name": "Fehlende Sicherheitsupdates"
+      },
+      "last_report": {
+        "name": "Letzter Bericht"
+      },
+      "os": {
+        "name": "Betriebssystem"
+      },
+      "filesystem": {
+        "name": "Speicherplatz {name}"
+      },
+      "health": {
+        "name": "Zustand",
+        "state": {
+          "healthy": "Gesund",
+          "watch": "Beobachten",
+          "failing": "Fällt aus",
+          "missing": "Fehlt"
+        }
+      },
+      "wear": {
+        "name": "Abnutzung"
+      },
+      "reallocated_sectors": {
+        "name": "Ersetzte Sektoren"
+      },
+      "pending_sectors": {
+        "name": "Schwebende Sektoren"
+      },
+      "media_errors": {
+        "name": "Medienfehler"
+      },
+      "power_on_hours": {
+        "name": "Betriebszeit"
+      },
+      "response_time": {
+        "name": "Antwortzeit"
+      },
+      "uptime_24h": {
+        "name": "Verfügbarkeit 24 Stunden"
+      },
+      "uptime_30d": {
+        "name": "Verfügbarkeit 30 Tage"
+      },
+      "certificate_expires": {
+        "name": "Zertifikat läuft ab am"
+      },
+      "last_success": {
+        "name": "Letzter Erfolg"
+      },
+      "deadline": {
+        "name": "Überfällig ab"
+      }
+    }
+  }
+}
